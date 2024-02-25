@@ -68,7 +68,7 @@ const FutureCasts = () => {
         <Carousel
           itemClass="carousel-item-padding"
           responsive={responsive}
-          draggable={false}
+          // draggable={false}
           arrows={true}
         >
           {futuredCastsData?.map((item: any, index: number) => {

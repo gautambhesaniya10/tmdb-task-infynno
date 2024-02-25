@@ -71,7 +71,7 @@ const FutureMovie = () => {
         <Carousel
           itemClass="carousel-item-padding"
           responsive={responsive}
-          draggable={false}
+          // draggable={false}
           arrows={true}
         >
           {futuredMovieData?.map((item: any, index: number) => {
