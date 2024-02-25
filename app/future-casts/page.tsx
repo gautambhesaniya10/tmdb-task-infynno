@@ -32,10 +32,14 @@ const FutureCastsPage = () => {
         }
       )
       .then((res) => {
-        setFuturedCastsData((prevData: any) => [
-          ...prevData,
-          ...res.data.results,
-        ]);
+        if (page === 1) {
+          setFuturedCastsData(res.data.results);
+        } else {
+          setFuturedCastsData((prevData: any) => [
+            ...prevData,
+            ...res.data.results,
+          ]);
+        }
         setLoading(false);
       })
       .catch((error) => {

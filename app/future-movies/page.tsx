@@ -31,10 +31,14 @@ const FutureMoviesPage = () => {
         }
       )
       .then((res) => {
-        setFuturedMovieData((prevData: any) => [
-          ...prevData,
-          ...res.data.results,
-        ]);
+        if (page === 1) {
+          setFuturedMovieData(res.data.results);
+        } else {
+          setFuturedMovieData((prevData: any) => [
+            ...prevData,
+            ...res.data.results,
+          ]);
+        }
         setLoading(false);
       })
       .catch((error) => {
@@ -96,9 +100,10 @@ const FutureMoviesPage = () => {
           <Image src={loadingIcon} alt="" width={50} height={50} />
         </div>
       ) : (
-        <div className="text-center my-16 text-black font-bold">Not Found Data ! </div>
-      )
-      }
+        <div className="text-center my-16 text-black font-bold">
+          Not Found Data !{" "}
+        </div>
+      )}
 
       <Footer />
     </div>
