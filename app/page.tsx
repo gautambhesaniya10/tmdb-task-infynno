@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import MovieSlider from "../components/MovieSlider/MovieSlider";
 import Header from "@/components/Header/Header";
 import FutureMovie from "@/components/FutureMovie/FutureMovie";
@@ -7,10 +8,12 @@ import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
 
 export default function Home() {
+  const [searchText, setSearchText] = useState<any>(""); 
+
   return (
     <div className="relative">
       <div className="absolute top-0 z-10 w-full">
-        <Header />
+        <Header setSearchText={setSearchText} />
       </div>
       <MovieSlider />
 

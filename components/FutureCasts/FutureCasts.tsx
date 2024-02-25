@@ -7,6 +7,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import loadingIcon from "../../assets/images/loading.svg";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const responsive = {
   superLargeDesktop: {
@@ -28,6 +29,7 @@ const responsive = {
 };
 
 const FutureCasts = () => {
+  const router = useRouter();
   const [futuredCastsData, setFuturedCastsData] = useState<any>([]);
 
   const getFuturedCasts = async () => {
@@ -57,7 +59,7 @@ const FutureCasts = () => {
     <div className="lg:px-20 px-8 w-full">
       <div className="mb-8 flex items-center justify-between">
         <div className="text-black text-3xl font-semibold">Featured Casts</div>
-        <div className="text-[#BE123C] text-lg font-normal">{`See more >`}</div>
+        <div onClick={() => router.push("future-casts")} className="text-[#BE123C] text-lg font-normal cursor-pointer">{`See more >`}</div>
       </div>
       {futuredCastsData?.length > 0 ? (
         <Carousel

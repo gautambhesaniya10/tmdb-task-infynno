@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import loadingIcon from "../../assets/images/loading.svg";
+import { useRouter } from "next/navigation";
 
 const responsive = {
   superLargeDesktop: {
@@ -29,6 +30,8 @@ const responsive = {
 };
 
 const FutureMovie = () => {
+  const router = useRouter();
+
   const [futuredMovieData, setFuturedMovieData] = useState<any>([]);
 
   const getFuturedMovies = async () => {
@@ -59,7 +62,7 @@ const FutureMovie = () => {
     <div className="lg:px-20 px-8 w-full">
       <div className="mb-8 flex items-center justify-between">
         <div className="text-black text-3xl font-semibold">Featured Movie</div>
-        <div className="text-[#BE123C] text-lg font-normal">{`See more >`}</div>
+        <div onClick={() => router.push("/future-movies")} className="text-[#BE123C] text-lg font-normal cursor-pointer">{`See more >`}</div>
       </div>
 
       {futuredMovieData?.length > 0 ? (
