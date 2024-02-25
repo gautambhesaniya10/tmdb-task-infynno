@@ -11,7 +11,7 @@ const MovieCard = ({ item, index, onlyFutureMovie }: any) => {
   const getFullYear = date.getFullYear();
 
   return (
-    <div className="w-[250px] relative">
+    <div className="lg:w-[240px] sm:w-[220px] w-auto relative">
       {item?.poster_path || item?.profile_path ? (
         <img
           src={`https://image.tmdb.org/t/p/w500${
