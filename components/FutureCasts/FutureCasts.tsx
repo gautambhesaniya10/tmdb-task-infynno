@@ -59,14 +59,17 @@ const FutureCasts = () => {
     <div className="lg:px-20 px-8 w-full">
       <div className="mb-8 flex items-center justify-between">
         <div className="text-black text-3xl font-semibold">Featured Casts</div>
-        <div onClick={() => router.push("future-casts")} className="text-[#BE123C] text-lg font-normal cursor-pointer">{`See more >`}</div>
+        <div
+          onClick={() => router.push("future-casts")}
+          className="text-[#BE123C] text-lg font-normal cursor-pointer"
+        >{`See more >`}</div>
       </div>
       {futuredCastsData?.length > 0 ? (
         <Carousel
           itemClass="carousel-item-padding"
           responsive={responsive}
           draggable={false}
-          arrows={true} 
+          arrows={true}
         >
           {futuredCastsData?.map((item: any, index: number) => {
             return (

@@ -57,12 +57,14 @@ const FutureMovie = () => {
     getFuturedMovies();
   }, []);
 
-
   return (
     <div className="lg:px-20 px-8 w-full">
       <div className="mb-8 flex items-center justify-between">
         <div className="text-black text-3xl font-semibold">Featured Movie</div>
-        <div onClick={() => router.push("/future-movies")} className="text-[#BE123C] text-lg font-normal cursor-pointer">{`See more >`}</div>
+        <div
+          onClick={() => router.push("/future-movies")}
+          className="text-[#BE123C] text-lg font-normal cursor-pointer"
+        >{`See more >`}</div>
       </div>
 
       {futuredMovieData?.length > 0 ? (
@@ -70,7 +72,7 @@ const FutureMovie = () => {
           itemClass="carousel-item-padding"
           responsive={responsive}
           draggable={false}
-          arrows={true} 
+          arrows={true}
         >
           {futuredMovieData?.map((item: any, index: number) => {
             return (
