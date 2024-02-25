@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
-import VerticalSlider from "../VerticalSlider/VerticalSlider";
 import axios from "axios";
 import { Movie_Slider_Api, TMDB_TOKEN } from "../../apiCofig";
+import VerticalSlider from "@/common/VerticalSlider/VerticalSlider";
+import Image from "next/image";
+import loadingIcon from "../../assets/images/loading.svg";
 
 const MovieSlider = () => {
   const [topMovieData, setTopMovieData] = useState<any>([]);
@@ -30,7 +32,13 @@ const MovieSlider = () => {
 
   return (
     <div className="relative">
-      <VerticalSlider topMovieData={topMovieData} />
+      {topMovieData?.length > 0 ? (
+        <VerticalSlider topMovieData={topMovieData} />
+      ) : (
+        <div className="w-full flex justify-center items-center h-[450px]">
+          <Image src={loadingIcon} alt="" />
+        </div>
+      )}
     </div>
   );
 };

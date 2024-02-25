@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import playButton from "../../assets/images/Play.png";
 import Image from "next/image";
+import appleIcon from "../../assets/images/PngItem_1381056 1.svg";
 
 const VerticalSlider = ({ topMovieData }: any) => {
   const [currentImageIndex, setCurrentImageIndex] = useState<any>(0);
@@ -18,7 +19,7 @@ const VerticalSlider = ({ topMovieData }: any) => {
     }, 2500);
 
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentImageIndex]);
 
   return (
@@ -68,7 +69,10 @@ const VerticalSlider = ({ topMovieData }: any) => {
                     IMDB
                   </p>
                   <p className="text-white">86.0 / 100</p>
-                  <p className="text-white ml-4">97%</p>
+                  <div className="ml-4 flex items-center gap-2">
+                    <Image src={appleIcon} alt="heart" width={15} height={15} />
+                    <p className="text-white text-xs">97%</p>
+                  </div>
                 </div>
                 <p className="text-white font-medium text-sm mb-3 line-clamp-6">
                   {item?.overview}
